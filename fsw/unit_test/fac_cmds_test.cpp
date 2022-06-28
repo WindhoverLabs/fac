@@ -31,62 +31,61 @@
 *
 *****************************************************************************/
 
-#ifndef FAC_VERSION_H
-#define FAC_VERSION_H
+#include "fac_cmds_test.hpp"
+#include "fac_test_utils.hpp"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include "fac_msg.h"
 
-/** \brief Major version number for FAC application
-**  
-**  \par Description:
-**       An application version number consists of four parts:
-**       major version number, minor version number, revision
-**       number and mission specific revision number. The mission
-**       specific revision number is defined in "ci_platform_cfg.h".
-**
-**  \par Limits:
-**       Must be defined as a numeric value that is greater than
-**       or equal to zero.
-*/
-#define FAC_MAJOR_VERSION    (0)
+#include "uttest.h"
+#include "ut_osapi_stubs.h"
+#include "ut_cfe_sb_stubs.h"
+#include "ut_cfe_es_stubs.h"
+#include "ut_cfe_es_hooks.h"
+#include "ut_cfe_evs_stubs.h"
+#include "ut_cfe_evs_hooks.h"
+#include "ut_cfe_time_stubs.h"
+#include "ut_cfe_psp_memutils_stubs.h"
+#include "ut_cfe_tbl_stubs.h"
+#include "ut_cfe_fs_stubs.h"
+#include "ut_cfe_time_stubs.h"
 
-/** \brief Minor version number for FAC application
-**  
-**  \par Description:
-**       An application version number consists of four parts:
-**       major version number, minor version number, revision
-**       number and mission specific revision number. The mission
-**       specific revision number is defined in "fac_platform_cfg.h".
-**
-**  \par Limits:
-**       Must be defined as a numeric value that is greater than
-**       or equal to zero.
-*/
-#define FAC_MINOR_VERSION    (0)
-
-/** \brief Revision version number for FAC application
-**  
-**  \par Description:
-**       An application version number consists of four parts:
-**       major version number, minor version number, revision
-**       number and mission specific revision number. The mission
-**       specific revision number is defined in "fac_platform_cfg.h".
-**
-**  \par Limits:
-**       Must be defined as a numeric value that is greater than
-**       or equal to zero.
-*/
-#define FAC_REVISION         (0)
-
-
-#ifdef __cplusplus
+int32 FAC_Cmds_Test_UT_CFE_SB_SubscribeHook1(CFE_SB_MsgId_t MsgId, CFE_SB_PipeId_t PipeId,
+                                                CFE_SB_Qos_t Quality, uint16 MsgLim)
+{
+    return 5;
 }
-#endif
 
-#endif /* FAC_VERSION_H */
 
-/************************/
-/*  End of File Comment */
-/************************/
+int32 FAC_Cmds_Test_UT_CFE_SB_SubscribeHook2(CFE_SB_MsgId_t MsgId, CFE_SB_PipeId_t PipeId,
+                                                CFE_SB_Qos_t Quality, uint16 MsgLim)
+{
+    return 6;
+}
+
+
+void FAC_Function2_Test_Case1(void)
+{
+/*    int32 Result;
+
+    Variable3 = 3;
+
+    Ut_CFE_SB_SetFunctionHook(UT_CFE_SB_SUBSCRIBE_INDEX, &FAC_Cmds_Test_UT_CFE_SB_SubscribeHook1);
+*/
+    /* Execute the function being tested */
+/*    Result = FAC_Function2();*/
+    
+    /* Verify results */
+/*    UtAssert_True (Variable4 == 4, "Variable4 == 4");
+    UtAssert_True (Result == 25, "Result == 25");
+
+    UtAssert_True (Ut_CFE_EVS_GetEventQueueDepth() == 0, "Ut_CFE_EVS_GetEventQueueDepth() == 0");
+*/
+} /* end FAC_Function2_Test_Case1 */
+
+
+void FAC_Cmds_Test_AddTestCases(void)
+{
+    UtTest_Add(FAC_Function2_Test_Case1, FAC_Test_Setup, FAC_Test_TearDown, "FAC_Function2_Test_Case1");
+} /* end FAC_Cmds_Test_AddTestCases */
+
+

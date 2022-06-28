@@ -31,62 +31,34 @@
 *
 *****************************************************************************/
 
-#ifndef FAC_VERSION_H
-#define FAC_VERSION_H
+#include "fac_config_tbl_test.hpp"
+#include "fac_test_utils.hpp"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include "fac_msg.h"
 
-/** \brief Major version number for FAC application
-**  
-**  \par Description:
-**       An application version number consists of four parts:
-**       major version number, minor version number, revision
-**       number and mission specific revision number. The mission
-**       specific revision number is defined in "ci_platform_cfg.h".
-**
-**  \par Limits:
-**       Must be defined as a numeric value that is greater than
-**       or equal to zero.
-*/
-#define FAC_MAJOR_VERSION    (0)
-
-/** \brief Minor version number for FAC application
-**  
-**  \par Description:
-**       An application version number consists of four parts:
-**       major version number, minor version number, revision
-**       number and mission specific revision number. The mission
-**       specific revision number is defined in "fac_platform_cfg.h".
-**
-**  \par Limits:
-**       Must be defined as a numeric value that is greater than
-**       or equal to zero.
-*/
-#define FAC_MINOR_VERSION    (0)
-
-/** \brief Revision version number for FAC application
-**  
-**  \par Description:
-**       An application version number consists of four parts:
-**       major version number, minor version number, revision
-**       number and mission specific revision number. The mission
-**       specific revision number is defined in "fac_platform_cfg.h".
-**
-**  \par Limits:
-**       Must be defined as a numeric value that is greater than
-**       or equal to zero.
-*/
-#define FAC_REVISION         (0)
+#include "uttest.h"
+#include "ut_osapi_stubs.h"
+#include "ut_cfe_sb_stubs.h"
+#include "ut_cfe_es_stubs.h"
+#include "ut_cfe_es_hooks.h"
+#include "ut_cfe_evs_stubs.h"
+#include "ut_cfe_evs_hooks.h"
+#include "ut_cfe_time_stubs.h"
+#include "ut_cfe_psp_memutils_stubs.h"
+#include "ut_cfe_tbl_stubs.h"
+#include "ut_cfe_fs_stubs.h"
+#include "ut_cfe_time_stubs.h"
 
 
-#ifdef __cplusplus
+void FAC_Config_Tbl_Test_Case1(void)
+{
+
 }
-#endif
 
-#endif /* FAC_VERSION_H */
 
-/************************/
-/*  End of File Comment */
-/************************/
+void FAC_Config_Tbl_Test_AddTestCases(void)
+{
+    UtTest_Add(FAC_Config_Tbl_Test_Case1, FAC_Test_Setup, FAC_Test_TearDown, "FAC_Config_Tbl_Test_Case1");
+}
+
+

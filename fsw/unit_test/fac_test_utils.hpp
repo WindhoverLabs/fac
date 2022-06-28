@@ -31,62 +31,32 @@
 *
 *****************************************************************************/
 
-#ifndef FAC_VERSION_H
-#define FAC_VERSION_H
+#ifndef FAC_TEST_UTILS_H
+#define FAC_TEST_UTILS_H
+
+/*
+ * Includes
+ */
+
+#include "fac_app.hpp"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-/** \brief Major version number for FAC application
-**  
-**  \par Description:
-**       An application version number consists of four parts:
-**       major version number, minor version number, revision
-**       number and mission specific revision number. The mission
-**       specific revision number is defined in "ci_platform_cfg.h".
-**
-**  \par Limits:
-**       Must be defined as a numeric value that is greater than
-**       or equal to zero.
-*/
-#define FAC_MAJOR_VERSION    (0)
+/*
+ * Function Definitions
+ */
 
-/** \brief Minor version number for FAC application
-**  
-**  \par Description:
-**       An application version number consists of four parts:
-**       major version number, minor version number, revision
-**       number and mission specific revision number. The mission
-**       specific revision number is defined in "fac_platform_cfg.h".
-**
-**  \par Limits:
-**       Must be defined as a numeric value that is greater than
-**       or equal to zero.
-*/
-#define FAC_MINOR_VERSION    (0)
+void FAC_Test_Setup(void);
+void FAC_Test_TearDown(void);
 
-/** \brief Revision version number for FAC application
-**  
-**  \par Description:
-**       An application version number consists of four parts:
-**       major version number, minor version number, revision
-**       number and mission specific revision number. The mission
-**       specific revision number is defined in "fac_platform_cfg.h".
-**
-**  \par Limits:
-**       Must be defined as a numeric value that is greater than
-**       or equal to zero.
-*/
-#define FAC_REVISION         (0)
+extern FAC oFAC;
 
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* FAC_VERSION_H */
+#endif /* FAC_TEST_UTILS_H */
 
-/************************/
-/*  End of File Comment */
-/************************/

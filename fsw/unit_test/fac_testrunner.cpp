@@ -31,62 +31,24 @@
 *
 *****************************************************************************/
 
-#ifndef FAC_VERSION_H
-#define FAC_VERSION_H
+#include "uttest.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include "fac_app.hpp"
+#include "fac_app_test.hpp"
+#include "fac_cmds_test.hpp"
+#include "fac_config_tbl_test.hpp"
 
-/** \brief Major version number for FAC application
-**  
-**  \par Description:
-**       An application version number consists of four parts:
-**       major version number, minor version number, revision
-**       number and mission specific revision number. The mission
-**       specific revision number is defined in "ci_platform_cfg.h".
-**
-**  \par Limits:
-**       Must be defined as a numeric value that is greater than
-**       or equal to zero.
-*/
-#define FAC_MAJOR_VERSION    (0)
+FAC cpyFAC;
 
-/** \brief Minor version number for FAC application
-**  
-**  \par Description:
-**       An application version number consists of four parts:
-**       major version number, minor version number, revision
-**       number and mission specific revision number. The mission
-**       specific revision number is defined in "fac_platform_cfg.h".
-**
-**  \par Limits:
-**       Must be defined as a numeric value that is greater than
-**       or equal to zero.
-*/
-#define FAC_MINOR_VERSION    (0)
+int main(void)
+{   
+	CFE_PSP_MemCpy(&oFAC, &cpyFAC, sizeof(FAC));
 
-/** \brief Revision version number for FAC application
-**  
-**  \par Description:
-**       An application version number consists of four parts:
-**       major version number, minor version number, revision
-**       number and mission specific revision number. The mission
-**       specific revision number is defined in "fac_platform_cfg.h".
-**
-**  \par Limits:
-**       Must be defined as a numeric value that is greater than
-**       or equal to zero.
-*/
-#define FAC_REVISION         (0)
+    FAC_App_Test_AddTestCases();
+    FAC_Cmds_Test_AddTestCases();
+    FAC_Config_Tbl_Test_AddTestCases();
 
+    return(UtTest_Run());
 
-#ifdef __cplusplus
 }
-#endif
 
-#endif /* FAC_VERSION_H */
-
-/************************/
-/*  End of File Comment */
-/************************/
